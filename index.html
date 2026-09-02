@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>星际战争 · 银河自动演化模拟器</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="galaxy"></canvas>
+
+  <div id="hud">
+    <!-- ============ 顶栏 ============ -->
+    <header id="topbar">
+      <div class="logo">星际战争<small>GALACTIC WAR SIMULATOR</small></div>
+      <div class="era" id="era">2387.00<small>—</small></div>
+      <div class="speeds" id="speeds"></div>
+      <div class="resources" id="resources"></div>
+      <div class="spacer"></div>
+      <div class="faction-tabs" id="factionTabs"></div>
+      <div class="tools" id="tools"></div>
+    </header>
+
+    <!-- ============ 左侧势力面板 ============ -->
+    <aside id="leftPanel" class="panel"></aside>
+
+    <!-- ============ 右侧信息面板 ============ -->
+    <aside id="rightPanel" class="panel"></aside>
+
+    <!-- ============ 事件提示 ============ -->
+    <div id="notifyArea"></div>
+
+    <!-- ============ 底部日志 ============ -->
+    <footer id="bottomPanel" class="panel">
+      <div id="logTabs"></div>
+      <div id="log"></div>
+    </footer>
+
+    <div id="hintBox" class="panel">
+      拖拽平移 · 滚轮缩放 · <kbd>双击舰队</kbd> 跟随 · <kbd>空格</kbd> 暂停 · <kbd>A</kbd> 自动观战
+    </div>
+    <div id="zoomControls" class="panel" aria-label="地图缩放控制">
+      <button id="zoomOut" class="zoom-btn" type="button" aria-label="缩小地图" title="缩小地图（-）">−</button>
+      <button id="zoomValue" class="zoom-value" type="button" aria-live="polite" title="当前地图缩放倍率">缩放 50%</button>
+      <button id="zoomIn" class="zoom-btn" type="button" aria-label="放大地图" title="放大地图（+）">+</button>
+      <button id="zoomFit" class="zoom-btn fit" type="button" aria-label="适合全图" title="适合显示整个银河（F）">⌖</button>
+      <div class="zoom-tip">滚轮 / + − · 放大后显示战术舰船</div>
+    </div>
+    <div id="perfBox" class="panel"></div>
+  </div>
+
+  <!-- ============ 模态窗口 ============ -->
+  <div id="modal" class="hidden">
+    <div class="modal-box" id="modalBox"></div>
+  </div>
+
+  <!-- ============ 胜利画面 ============ -->
+  <div id="victoryScreen" class="hidden">
+    <div id="victoryBox"></div>
+  </div>
+</div>
+
+<!-- ================= 配置 ================= -->
+<script src="js/util/utils.js"></script>
+<script src="js/util/nameGen.js"></script>
+<script src="js/config/galaxyConfig.js"></script>
+<script src="js/config/resourceConfig.js"></script>
+<script src="js/config/factionConfig.js"></script>
+<script src="js/config/shipConfig.js"></script>
+<script src="js/config/techConfig.js"></script>
+<script src="js/config/buildingConfig.js"></script>
+<script src="js/config/aiConfig.js"></script>
+
+<!-- ================= 核心 ================= -->
+<script src="js/core/events.js"></script>
+<script src="js/core/gameTime.js"></script>
+
+<!-- ================= 银河 ================= -->
+<script src="js/galaxy/starSystem.js"></script>
+<script src="js/galaxy/hyperlaneManager.js"></script>
+<script src="js/galaxy/galaxyManager.js"></script>
+
+<!-- ================= 势力 ================= -->
+<script src="js/factions/faction.js"></script>
+<script src="js/factions/factionManager.js"></script>
+
+<!-- ================= 系统 ================= -->
+<script src="js/systems/economySystem.js"></script>
+<script src="js/systems/technologySystem.js"></script>
+<script src="js/systems/buildingSystem.js"></script>
+<script src="js/systems/productionSystem.js"></script>
+<script src="js/systems/fleetSystem.js"></script>
+<script src="js/systems/combatSystem.js"></script>
+<script src="js/systems/diplomacySystem.js"></script>
+<script src="js/systems/saveSystem.js"></script>
+
+<!-- ================= AI ================= -->
+<script src="js/ai/economyAI.js"></script>
+<script src="js/ai/expansionAI.js"></script>
+<script src="js/ai/militaryAI.js"></script>
+<script src="js/ai/researchAI.js"></script>
+<script src="js/ai/productionAI.js"></script>
+<script src="js/ai/strategicAI.js"></script>
+
+<!-- ================= 渲染 ================= -->
+<script src="js/render/camera.js"></script>
+<script src="js/render/effects.js"></script>
+<script src="js/render/renderer.js"></script>
+
+<!-- ================= UI ================= -->
+<script src="js/ui/uiManager.js"></script>
+
+<!-- ================= 总控 ================= -->
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
